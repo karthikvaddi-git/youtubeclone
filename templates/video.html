@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{video.video_title}}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/video.css' %}" />
+  </head>
+
+  <body>
+   {% include 'navbar.html' %}
+
+<h1>{{video}}</h1>
+
+   <h1>{{video.video_title}}</h1>
+
+    <div class="row-2">
+      <div class="width-1 flex">
+        <div class="video">
+          <video controls
+          poster="{{video.video1thumbnail.url}}">
+            <source src="{{video.video.url}}">
+
+
+          </video>
+          <div class="channel_info">
+            <div class="views_title">
+              <h2 class="text-primary">{{video.video_title}}</h2>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>
