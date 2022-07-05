@@ -5,38 +5,105 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{video.video_title}}</title>
+    <title>Youtube Clone</title>
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/video.css' %}" />
+
+    <link
+      rel="shortcut icon"
+      href="https://www.youtube.com/s/desktop/3cbce0d4/img/favicon_32.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
   <body>
-   {% include 'navbar.html' %}
-
-<h1>{{video}}</h1>
-
-   <h1>{{video.video_title}}</h1>
-
-    <div class="row-2">
-      <div class="width-1 flex">
-        <div class="video">
-          <video controls
-          poster="{{video.video1thumbnail.url}}">
-            <source src="{{video.video.url}}">
-
-
-          </video>
-          <div class="channel_info">
-            <div class="views_title">
-              <h2 class="text-primary">{{video.video_title}}</h2>
-
-            </div>
-
-          </div>
-        </div>
-
+    {% include 'navbar.html' %}
+    <div class="sidebar">
+      <div class="first-svg">
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="style-scope yt-icon">
+            <path
+              d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8"
+              class="style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="style-scope yt-icon">
+            <path
+              d="M11.23 13.08c-.29-.21-.48-.51-.54-.86-.06-.35.02-.71.23-.99.21-.29.51-.48.86-.54.35-.06.7.02.99.23.29.21.48.51.54.86.06.35-.02.71-.23.99a1.327 1.327 0 01-1.08.56c-.28 0-.55-.08-.77-.25zM22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10zm-3.97-6.03L9.8 9.8l-3.83 8.23 8.23-3.83 3.83-8.23z"
+              class="style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          preserveAspectRatio="xMidYMid meet"
+          focusable="false"
+          class="style-scope yt-icon"
+          style="
+            pointer-events: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+          "
+        >
+          <g class="style-scope yt-icon">
+            <path
+              d="M18.7 8.7H5.3V7h13.4v1.7zm-1.7-5H7v1.6h10V3.7zm3.3 8.3v6.7c0 1-.7 1.6-1.6 1.6H5.3c-1 0-1.6-.7-1.6-1.6V12c0-1 .7-1.7 1.6-1.7h13.4c1 0 1.6.8 1.6 1.7zm-5 3.3l-5-2.7V18l5-2.7z"
+              class="style-scope yt-icon"
+            ></path>
+          </g>
+        </svg>
       </div>
+    </div>
+    <div class="row">
+    {% if videos %}
+    {% for video in videos %}
+ <a href="{% url 'video' video.id %}">
+        <div class="col-sm">
+          <img
+            src="{{video.video1thumbnail.url}}"
+            alt=""
+            class="thumbnail"
+          />
+          <div class="channel-name-title">
+
+            <h3 class="title">{{video.video_title}}</h3>
+          </div>
+
+        </div></a>
+        {% endfor %}
+        {% endif %}
 
     </div>
+
+    <!-- SCRIPT IS HERER -->
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
