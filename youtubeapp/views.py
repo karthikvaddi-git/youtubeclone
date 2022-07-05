@@ -22,6 +22,9 @@ def upload(request):
         x=Video.objects.create(video1thumbnail=request.FILES['thumbnail'],video_title=request.POST['videoTitle'],video_desc=request.POST['description'],video=request.FILES['video'])
 
         return render(request,"videoupload.html")
+    else:
+        return render(request,"videoupload.html")
+
 
 
 

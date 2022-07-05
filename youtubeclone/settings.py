@@ -84,7 +84,19 @@ DATABASES = {
     }
 }
 
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'youtubeclone',
+        'USER': 'youtubeclone',
+        'PASSWORD': 'databaserds',
+        'HOST': 'youtubeclone.cweacsi0j2xl.ap-south-1.rds.amazonaws.com',
+        'PORT': '3306',
 
+    },
+}
+"""
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
